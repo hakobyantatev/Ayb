@@ -15,7 +15,7 @@
             height: 100vh;
         }
 
-        /* ☀️ Արև */
+        /* Արև */
         .sun {
             position: absolute;
             top: 20px;
@@ -28,7 +28,7 @@
             z-index: 1;
         }
 
-        /* ☁️ Ամպեր */
+        /* Ամպեր */
         .cloud {
             position: absolute;
             background: white;
@@ -50,7 +50,7 @@
             to { transform: translateX(130vw); }
         }
 
-        /* 🌊 Ծով */
+        /* Ծով */
         .ocean {
             height: 25%;
             width: 100%;
@@ -75,75 +75,21 @@
             100% { margin-left: -1600px; }
         }
 
-        /* 🏝️ Կղզի */
-        .island {
-            position: absolute;
-            bottom: 15vh;
-            right: -500px; /* Սկսում է էկրանից դուրս */
-            width: 250px;
-            height: 150px;
-            z-index: 10; /* Ավելացվել է, որ լինի ծովից վերև */
-            animation: slideIslandIn 2s forwards ease-out;
-            animation-delay: 1s;
-        }
-
-        @keyframes slideIslandIn {
-            to { right: 5vw; }
-        }
-
-        .island-land {
-            position: absolute;
-            bottom: 0;
-            left: 30px;
-            width: 200px;
-            height: 50px;
-            background: #e6cc80;
-            border-radius: 100px 100px 0 0;
-        }
-
-        .palm {
-            position: absolute;
-            bottom: 40px;
-            width: 80px;
-            height: 100px;
-        }
-        .palm-trunk {
-            position: absolute;
-            bottom: 0;
-            left: 35px;
-            width: 10px;
-            height: 60px;
-            background: #8b5a2b;
-            border-radius: 5px 5px 0 0;
-        }
-        .palm-leaves {
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 80px;
-            height: 50px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><path d="M250 250 C 150 150, 50 200, 50 250 C 50 300, 150 350, 250 250 Z M250 250 C 350 150, 450 200, 450 250 C 450 300, 350 350, 250 250 Z M250 250 C 150 50, 200 50, 250 50 C 300 50, 350 50, 250 250 Z M250 250 C 150 450, 200 450, 250 450 C 300 450, 350 450, 250 250 Z" fill="%232d862d"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        .palm1 { left: 40px; }
-        .palm2 { left: 100px; bottom: 35px; transform: scale(0.8) rotate(10deg); }
-
-        /* ⛵ Նավակ */
+        /* Նավակ */
         .boat-container {
             position: absolute;
             bottom: 20px;
             left: -400px; 
-            width: 300px;
+            width: 300px; /* Փոքրացված սկզբնական չափս հեռախոսի համար */
             animation: sailToIsland 12s forwards linear, bobbing 3s ease-in-out infinite;
-            z-index: 15;
+            z-index: 10;
         }
 
         .boat-img { width: 100%; display: block; }
 
         @keyframes sailToIsland {
             0% { left: -400px; }
-            100% { left: calc(100vw - 320px); }
+            100% { left: calc(100vw - 280px); }
         }
 
         @keyframes bobbing {
@@ -151,7 +97,7 @@
             50% { transform: translateY(-10px) rotate(2deg); }
         }
 
-        /* 💌 Հրավիրատոմս */
+        /* Հրավիրատոմս */
         #invitation-card {
             position: absolute;
             top: 45%;
@@ -163,9 +109,9 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             text-align: center;
             width: 90%;
-            max-width: 500px;
+            max-width: 700px;
             border: 6px solid #ef4444;
-            z-index: 30;
+            z-index: 20;
             opacity: 0;
             visibility: hidden;
             transition: all 1s ease-in-out;
@@ -180,23 +126,17 @@
         .title { color: #1e40af; font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; }
         .details { color: #1f2937; font-size: 1.1rem; line-height: 1.6; }
 
-        /* 🖥️ Մեծ էկրաններ */
+        /* ՍԱ ԿԱՐԵՎՈՐ Է. Մեծ էկրանների (համակարգչի) համար կարգավորումներ */
         @media (min-width: 768px) {
             .sun { width: 100px; height: 100px; top: 40px; right: 60px; }
             .boat-container { width: 500px; left: -600px; }
             @keyframes sailToIsland {
                 0% { left: -600px; }
-                100% { left: calc(100vw - 520px); }
+                100% { left: calc(100vw - 450px); }
             }
-            .island { width: 500px; height: 300px; bottom: 15vh; }
-            .island-land { width: 400px; height: 100px; left: 50px; }
-            .palm { width: 150px; height: 200px; bottom: 80px; }
-            .palm-trunk { width: 20px; height: 150px; left: 65px; }
-            .palm-leaves { width: 150px; height: 100px; top: -20px; }
-            .palm1 { left: 80px; transform: scale(1.2); }
-            .palm2 { left: 220px; transform: scale(1) rotate(10deg); bottom: 70px; }
             .title { font-size: 1.8rem; }
             .details { font-size: 1.3rem; }
+            #invitation-card { padding: 2.5rem; width: 85%; }
         }
 
         .sound-hint {
@@ -210,6 +150,7 @@
             border-radius: 20px;
             font-size: 0.8rem;
             z-index: 100;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -225,13 +166,14 @@
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
 
-
     <div id="invitation-card">
         <p class="title">Հարգելի՛ ծնողներ,</p>
         <p class="details">
-            Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու <b>«Բացահայտողների»</b> միջոցառմանը, որը տեղի կունենա <b>ապրիլի 15-ին, ժամը 13։00-ին</b>:
+            սիրով հրավիրում ենք Ձեզ ներկա գտնվելու <b>«Բացահայտողներ»</b> դասարանի Այբբենարանի ցերեկույթին, որը տեղի կունենա <b>ապրիլի 15-ին` ժամը 13։00-ին, ԳԱՈՒՍ-ի հանդիսությունների դահլիճում</b>:
             <br><br>
-            Սիրով սպասում ենք Ձեզ միասին նավարկելու այբուբենի ծովում։
+            Սիրով կսպասենք Ձեզ` 
+<br>
+միասին նավարկելու այբուբենի ծովում։
         </p>
     </div>
 
@@ -246,7 +188,7 @@
     <script>
         function startAudio() {
             const audio = document.getElementById('background-song');
-            audio.play().catch(e => console.log("Audio failure:", e));
+            audio.play();
             document.querySelector('.sound-hint').style.display = 'none';
         }
 
